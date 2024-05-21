@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function SinglePlayerPage() {
   const puppyGet = useSelector((state) => state.puppy.data.players);
   const params = useParams();
   const chosenPuppy = puppyGet.find((i) => i.name === params.name);
-  console.log(chosenPuppy);
+
   return (
     <div className="block-ext" key={chosenPuppy.id}>
       <h3>
