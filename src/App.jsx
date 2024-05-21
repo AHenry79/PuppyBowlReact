@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import PlayersPage from "./components/Pages/PlayersPage";
 import { useGetPlayersQuery } from "./api";
+import SinglePlayerPage from "./components/Pages/SinglePlayerPage";
 
 function App() {
   const { isLoading } = useGetPlayersQuery();
@@ -9,10 +10,11 @@ function App() {
     <>
       <Nav />
       {isLoading ? (
-        <h1 className="load">Loading puppies...</h1>
+        <h1 className="load">Loading...</h1>
       ) : (
         <Routes>
           <Route index element={<PlayersPage />} />
+          <Route path="/player/:name" element={<SinglePlayerPage />} />
         </Routes>
       )}
     </>

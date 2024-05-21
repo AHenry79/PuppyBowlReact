@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { puppyBowlApi } from "./api";
+import { api } from "./api";
 import puppySlice from "./Slices/puppySlice";
 
 const store = configureStore({
   reducer: {
-    [puppyBowlApi.reducerPath]: puppyBowlApi.reducer,
+    [api.reducerPath]: api.reducer,
     puppy: puppySlice,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(puppyBowlApi.middleware),
+    getDefaultMiddleware().concat(api.middleware),
 });
 export default store;
