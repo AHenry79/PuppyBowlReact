@@ -10,6 +10,9 @@ export const api = createApi({
     getPlayers: builder.query({
       query: () => "players",
     }),
+    getPlayer: builder.query({
+      query: () => `players/${id}`,
+    }),
     addPlayer: builder.mutation({
       query: (newPlayer) => ({
         url: "players",
@@ -27,6 +30,7 @@ export const api = createApi({
 });
 export const {
   useGetPlayersQuery,
+  useGetPlayerQuery,
   useAddPlayerMutation,
   useDeletePlayerMutation,
 } = api;
