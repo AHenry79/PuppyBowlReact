@@ -10,7 +10,6 @@ function SinglePlayerPage() {
   const params = useParams();
   const id = params.id;
   const { isLoading, data } = useGetPlayerQuery(id);
-  console.log(!isLoading && data.data.player);
   const [deletePlayer] = useDeletePlayerMutation();
 
   return (
@@ -20,11 +19,11 @@ function SinglePlayerPage() {
       ) : (
         <>
           <SinglePlayer data={data.data.player} />
-          {/* <Link to="/" className="links2"> */}
-          <button className="delButton" onClick={() => deletePlayer(id)}>
-            Delete Player
-          </button>
-          {/* </Link> */}
+          <Link to="/" className="links2">
+            <button className="delButton" onClick={() => deletePlayer(id)}>
+              Delete Player
+            </button>
+          </Link>
 
           <Link to="/" className="links2">
             <button className="returnButton">Return to Puppies</button>

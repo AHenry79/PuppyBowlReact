@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function PlayersPage() {
   const puppy = useSelector((state) => state.puppy.data.players);
-  console.log(puppy);
   return (
     <div className="render">
       {puppy.length < 1 ? (

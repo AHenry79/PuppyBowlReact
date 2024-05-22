@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAddPlayerMutation } from "../../api";
-import { useDispatch } from "react-redux";
 
 function AddPlayer() {
   const [form, setForm] = useState({
@@ -9,6 +8,7 @@ function AddPlayer() {
     breed: "",
     status: "bench",
     imageUrl: "",
+    teamId: "43",
   });
   const navig = useNavigate();
   const [AddPlayer] = useAddPlayerMutation();
