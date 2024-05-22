@@ -2,35 +2,33 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetPlayerQuery } from "../../api";
 import { useDeletePlayerMutation } from "../../api";
+import SinglePlayer from "./SinglePlayer";
+import { Link } from "react-router-dom";
 
 function SinglePlayerPage() {
   const puppyGet = useSelector((state) => state.puppy.data.players);
   const params = useParams();
   const id = params.id;
-  const { isLoading } = useGetPlayerQuery(id);
+  const { isLoading, data } = useGetPlayerQuery(id);
+  console.log(!isLoading && data.data.player);
   const [deletePlayer] = useDeletePlayerMutation();
-  const chosenPuppy = puppyGet.find((i) => i.name === params.name);
 
   return (
-    <div className="block-ext" key={chosenPuppy.id}>
+    <div className="block-ext" key={puppyGet.id}>
       {isLoading ? (
         <h1 className="load">Loading...</h1>
       ) : (
         <>
-          <h3>
-            ID:
-            {chosenPuppy.id}
-          </h3>
-          <div className="image-container">
-            <img src={chosenPuppy.imageUrl} alt={chosenPuppy.name} />
-          </div>
-          <h3 className="name">{chosenPuppy.name}</h3>
-          <h3>Breed: {chosenPuppy.breed}</h3>
-          <h3>Status: {chosenPuppy.status}</h3>
-          <h3>Team ID: {chosenPuppy.teamId}</h3>
+          <SinglePlayer data={data.data.player} />
+          {/* <Link to="/" className="links2"> */}
           <button className="delButton" onClick={() => deletePlayer(id)}>
             Delete Player
           </button>
+          {/* </Link> */}
+
+          <Link to="/" className="links2">
+            <button className="returnButton">Return to Puppies</button>
+          </Link>
         </>
       )}
     </div>

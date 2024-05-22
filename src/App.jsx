@@ -3,6 +3,7 @@ import Nav from "./components/Nav/Nav";
 import PlayersPage from "./components/Pages/PlayersPage";
 import { useGetPlayersQuery } from "./api";
 import SinglePlayerPage from "./components/Pages/SinglePlayerPage";
+import AddPlayer from "./components/Pages/AddPlayer";
 
 function App() {
   const { isLoading } = useGetPlayersQuery();
@@ -14,7 +15,8 @@ function App() {
       ) : (
         <Routes>
           <Route index element={<PlayersPage />} />
-          <Route path="/player/:name" element={<SinglePlayerPage />} />
+          <Route path="/players/:id" element={<SinglePlayerPage />} />
+          <Route path="/add-player" element={<AddPlayer />} />
         </Routes>
       )}
     </>

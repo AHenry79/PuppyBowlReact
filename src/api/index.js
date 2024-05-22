@@ -11,7 +11,7 @@ export const api = createApi({
       query: () => "players",
     }),
     getPlayer: builder.query({
-      query: () => `players/${id}`,
+      query: (id) => `players/${id}`,
     }),
     addPlayer: builder.mutation({
       query: (newPlayer) => ({
@@ -21,8 +21,8 @@ export const api = createApi({
       }),
     }),
     deletePlayer: builder.mutation({
-      query: (name) => ({
-        url: `players/${name}`,
+      query: (id) => ({
+        url: `players/${id}`,
         method: "DELETE",
       }),
     }),

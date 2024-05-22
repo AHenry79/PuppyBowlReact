@@ -10,6 +10,9 @@ export default function Nav() {
       <Link to="/" className="links">
         HOME
       </Link>
+      <Link to="/add-player" className="links">
+        ADD PLAYER
+      </Link>
     </nav>
   );
 }

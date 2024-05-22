@@ -24,6 +24,13 @@
   padding: 8px 20px;
   text-decoration: none;
 }
+.links2 {
+  color: white;
+  text-decoration: none;
+}
+.links2:visited {
+  color: white;
+}
 .load {
   padding-top: 100px;
 }
@@ -75,8 +82,29 @@ h3 {
   padding-top: 10px;
   padding: 0 20px;
   margin-bottom: 5px;
+  color: white;
 }
 .delButton {
   display: flex;
-  margin: auto;
+  margin: 10px auto;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: red;
+}
+.delButton:hover {
+  cursor: pointer;
+}
+.returnButton {
+  display: flex;
+  margin: 10px auto;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #ce8d27;
+}
+.returnButton:hover {
+  cursor: pointer;
 }
